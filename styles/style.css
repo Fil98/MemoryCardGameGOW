@@ -1,0 +1,61 @@
+
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+
+/* Тело страницы */
+body {
+  height: 100vh;
+  display: flex;
+  background-color: rgb(252, 57, 57);
+}
+/* Позиционирование карточек */
+.memory-game {
+  height: 640px;
+  width: 640px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
+}
+/* Настройка самих карточек */
+.card {
+  height: calc(33.333% - 10px);
+  width: calc(25% - 10px);
+  margin: 5px;
+  position: relative;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.9s;
+}
+/* Плавность и задержка при переворачивании карты */
+.card:active {
+  transform: scale(0.97);
+  transition: transform 0.3s;
+}
+/* Настройка карточек front и back */
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  padding: 1px;
+  position: absolute;
+  border-radius: 5px;
+  background: #fff;
+  backface-visibility: hidden;
+}
+
+/* Переворот карточек на 180* */
+.card-front {
+  transform: rotateY(180deg);
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
